@@ -1,0 +1,21 @@
+/**
+ *
+ *  Copyright (C) 2019+, Murilo Pagliuso.
+ *  master.scss
+ *
+ */
+
+$background: #121212;
+$primary-text-color: #eee;
+
+body {
+  background-color: $background;
+  text-align: center;
+  color: $primary-text-color;
+  font-family: "Roboto", Arial, sans-serif;
+}
+
+.message {
+  font-family: "Libre Barcode 128 Text", cursive;
+  font-size: 4em;
+}

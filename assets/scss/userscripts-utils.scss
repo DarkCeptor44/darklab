@@ -1,0 +1,74 @@
+/**
+ *
+ *  Copyright (C) 2019+, Murilo Pagliuso.
+ *  userscripts-utils.scss
+ *
+ */
+
+@import "mixins";
+
+$orange: #ff4500;
+$orange2: #ff5722;
+$transition: 200ms ease;
+$rainbow-gradient: repeating-linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+$rainbow-animation: rainbow 8s ease infinite;
+
+@keyframes rainbow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 25%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@-webkit-keyframes rainbow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 25%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@-moz-keyframes rainbow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 25%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@-o-keyframes rainbow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 25%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@-ms-keyframes rainbow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 25%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
