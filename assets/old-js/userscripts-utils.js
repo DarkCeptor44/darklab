@@ -12,7 +12,7 @@ else {
 
         dark.initCSSVariables();
 
-        $('head').append('<link rel="stylesheet" href="assets/css/userscripts-utils.css"/><link rel="stylesheet" href="' + dark.cssLibreBarFontUrl + '"/>');
+        $('head').append('<link rel="stylesheet" href="https://darkceptor44.github.io/darklab/assets/css/userscripts-utils.css"/><link rel="stylesheet" href="' + dark.cssLibreBarFontUrl + '"/>');
     });
 }
 
