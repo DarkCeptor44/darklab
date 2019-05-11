@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-console */
 if (window.jQuery === undefined)
     console.log('jQuery 3+ required and not present');
 else {
@@ -24,7 +26,7 @@ var dark = {
     initCSSVariables: function () {
         if (this.vars !== undefined && this.vars.length !== 0) {
             for (var varr in this.vars) {
-                varrnew = varr.replace(/_/g, '-');
+                var varrnew = varr.replace(/_/g, '-');
                 this.setCSSVarValue('--' + this.cssVarPrefix + varrnew, this.vars[varr]);
             }
         }
