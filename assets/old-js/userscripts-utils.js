@@ -1,22 +1,12 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-console */
-if (window.jQuery === undefined)
-    console.log('jQuery 3+ required and not present');
-else {
-    $(document).ready(function () {
-        console.log('jQuery present');
+dark.vars.orange = '#ff4500';
+dark.vars.orange2 = '#ff5722';
+dark.vars.transition = '200ms ease';
+dark.vars.rainbow_gradient = 'repeating-linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red)';
+dark.vars.rainbow_animation = 'rainbow 8s ease infinite';
 
-        dark.vars.orange = '#ff4500';
-        dark.vars.orange2 = '#ff5722';
-        dark.vars.transition = '200ms ease';
-        dark.vars.rainbow_gradient = 'repeating-linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red)';
-        dark.vars.rainbow_animation = 'rainbow 8s ease infinite';
+dark.initCSSVariables();
 
-        dark.initCSSVariables();
-
-        $('head').append('<link rel="stylesheet" href="https://darkceptor44.github.io/darklab/assets/css/userscripts-utils.css"/><link rel="stylesheet" href="' + dark.cssLibreBarFontUrl + '"/>');
-    });
-}
+document.head.appendChild('<link rel="stylesheet" href="https://darkceptor44.github.io/darklab/assets/css/userscripts-utils.css"/><link rel="stylesheet" href="' + dark.cssLibreBarFontUrl + '"/>');
 
 var dark = {
     cssVarPrefix: 'dark-',
@@ -38,5 +28,26 @@ var dark = {
     },
     setCSSVarValue: function (varname, varvalue) {
         document.documentElement.style.setProperty(varname, varvalue);
+    },
+    get: function (url, callback, error) {
+        var request = new XMLHttpRequest();
+        request.open('GET', url, true);
+        request.onload = function () {
+            if (request.status >= 200 && request.status < 400) {
+                var data = JSON.parse(request.responseText);
+                callback(request, data);
+            }
+            else {
+                console.log('couldnt do it, status: ' + request.status);
+            }
+        };
+        request.onerror = function () { error(); };
+        request.send();
+    },
+    post: function (url, data) {
+        var request = new XMLHttpRequest();
+        request.open('POST', url, true);
+        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+        request.send(data);
     }
 };
