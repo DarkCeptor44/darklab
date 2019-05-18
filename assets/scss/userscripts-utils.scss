@@ -89,3 +89,39 @@ $rainbow-animation: rainbow 8s ease infinite;
     transform: rotate(360deg);
   }
 }
+
+@keyframes regress {
+  0% {
+    width: 1%;
+  }
+  50% {
+    width: 100%;
+  }
+  100% {
+    width: 1%;
+  }
+}
+
+@-webkit-keyframes regress {
+  0% {
+    width: 1%;
+  }
+  50% {
+    width: 100%;
+  }
+  100% {
+    width: 1%;
+  }
+}
+
+@-moz-keyframes regress {
+  0% {
+    width: 1%;
+  }
+  50% {
+    width: 100%;
+  }
+  100% {
+    width: 1%;
+  }
+}

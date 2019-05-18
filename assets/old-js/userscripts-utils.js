@@ -45,6 +45,12 @@ const dark = {
 dark.vars.orange = '#ff4500';
 dark.vars.orange2 = '#ff5722';
 dark.vars.transition = '200ms ease';
+dark.vars.transition2 = '100ms ease';
+dark.vars.bg = '#121212';
+dark.vars.bg2 = '#1a1a1a';
+dark.vars.bg3 = '#272727';
+dark.vars.bg4 = '#383838';
+dark.vars.bg5 = '#474747';
 dark.vars.rainbow_gradient = 'repeating-linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red)';
 dark.vars.rainbow_animation = 'rainbow 8s ease infinite';
 
