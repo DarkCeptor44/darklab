@@ -1,8 +1,8 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var watch = require('gulp-watch');
-var uglify = require('gulp-uglify');
 var imagemin = require('gulp-imagemin');
+var terser = require('gulp-terser');
 
 var SCSS = 'assets/scss/*.scss';
 var JS = 'assets/old-js/*.js';
@@ -20,7 +20,11 @@ gulp.task('sass', function () {
 
 gulp.task('js', function () {
     return gulp.src(JS)
-        .pipe(uglify({ compress: true, mangle: false }))
+        //.pipe(uglify({ compress: true, mangle: false }))
+        .pipe(terser({
+            keep_fnames: true,
+            mangle: false
+        }))
         .pipe(gulp.dest(JS_DEST));
 });
 

@@ -1,14 +1,4 @@
-dark.vars.orange = '#ff4500';
-dark.vars.orange2 = '#ff5722';
-dark.vars.transition = '200ms ease';
-dark.vars.rainbow_gradient = 'repeating-linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red)';
-dark.vars.rainbow_animation = 'rainbow 8s ease infinite';
-
-dark.initCSSVariables();
-
-document.head.appendChild('<link rel="stylesheet" href="https://darkceptor44.github.io/darklab/assets/css/userscripts-utils.css"/><link rel="stylesheet" href="' + dark.cssLibreBarFontUrl + '"/>');
-
-var dark = {
+const dark = {
     cssVarPrefix: 'dark-',
     cssLibreBarFontUrl: 'https://fonts.googleapis.com/css?family=Libre+Barcode+128+Text',
     vars: {},
@@ -51,3 +41,22 @@ var dark = {
         request.send(data);
     }
 };
+
+dark.vars.orange = '#ff4500';
+dark.vars.orange2 = '#ff5722';
+dark.vars.transition = '200ms ease';
+dark.vars.rainbow_gradient = 'repeating-linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red)';
+dark.vars.rainbow_animation = 'rainbow 8s ease infinite';
+
+dark.initCSSVariables();
+
+var st = document.createElement('link');
+st.rel = 'stylesheet';
+st.href = 'https://darkceptor44.github.io/darklab/assets/css/userscripts-utils.css';
+
+var st2 = document.createElement('link');
+st2.rel = 'stylesheet';
+st2.href = dark.cssLibreBarFontUrl;
+
+document.head.appendChild(st);
+document.head.appendChild(st2);
