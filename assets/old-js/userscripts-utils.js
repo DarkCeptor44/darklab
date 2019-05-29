@@ -39,6 +39,15 @@ const dark = {
         request.open('POST', url, true);
         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
         request.send(data);
+    },
+    getFetch: function (url, callback) {
+        fetch(url)
+            .then(response => response.json())
+            .then(
+                (response = data => {
+                    callback(data);
+                })
+            );
     }
 };
 
