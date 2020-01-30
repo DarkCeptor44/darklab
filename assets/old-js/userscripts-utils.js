@@ -19,7 +19,16 @@ const dark = {
     setCSSVarValue: function (varname, varvalue) {
         document.documentElement.style.setProperty(varname, varvalue);
     },
-    get: function (url, callback, error) {
+    getURLParams: function (url) {
+        let array = url.match(/[^&?]+/g);
+        let dict = {};
+        array.forEach(e => {
+            let obj = e.split('=');
+            dict[obj[0]] = obj[1];
+            return dict;
+        });
+    },
+    getXML: function (url, callback, error) {
         var request = new XMLHttpRequest();
         request.open('GET', url, true);
         request.onload = function () {
@@ -34,7 +43,7 @@ const dark = {
         request.onerror = function () { error(); };
         request.send();
     },
-    post: function (url, data) {
+    postXML: function (url, data) {
         var request = new XMLHttpRequest();
         request.open('POST', url, true);
         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
@@ -43,11 +52,38 @@ const dark = {
     getFetch: function (url, callback) {
         fetch(url)
             .then(response => response.json())
-            .then(
-                (response = data => {
-                    callback(data);
-                })
-            );
+            .then((response = data => {
+                callback(data);
+            }));
+    },
+    postFetch: function (url, data, callback) {
+        fetch(url, { method: 'POST', body: data })
+            .then(response => response.json())
+            .then((response = data => {
+                callback(data);
+            }));
+    },
+    getFetchSync: async function (url) {
+        function getit() {
+            return new Promise(resolve => {
+                fetch(url)
+                    .then(response => response.json())
+                    .then((response = data => {
+                        resolve(data);
+                    }));
+            })
+        }
+        return await getit();
+    },
+    postFetchSync: async function (url, data) {
+        function getit() {
+            return new Promise(resolve => {
+                fetch(url, { method: 'POST', body: data })
+                    .then(response => response.json())
+                    .then((response = data => resolve(data)));
+            });
+        }
+        return await getit();
     }
 };
 

@@ -1,24 +1,24 @@
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var watch = require('gulp-watch');
-var imagemin = require('gulp-imagemin');
-var terser = require('gulp-terser');
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const imagemin = require('gulp-imagemin');
+const terser = require('gulp-terser');
+const del = require('del');
 
-var SCSS = 'assets/scss/*.scss';
-var JS = 'assets/old-js/*.js';
-var IMG = 'assets/images/*';
+const SCSS = 'assets/scss/*.scss';
+const JS = 'assets/old-js/*.js';
+const IMG = 'assets/images/*';
 
-var CSS_DEST = 'assets/css';
-var JS_DEST = 'assets/js';
-var IMG_DEST = 'assets/img/';
+const CSS_DEST = 'assets/css';
+const JS_DEST = 'assets/js';
+const IMG_DEST = 'assets/img/';
 
-gulp.task('sass', function () {
+gulp.task('buildsass', function () {
     return gulp.src(SCSS)
         .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
         .pipe(gulp.dest(CSS_DEST));
 });
 
-gulp.task('js', function () {
+gulp.task('buildjs', function () {
     return gulp.src(JS)
         //.pipe(uglify({ compress: true, mangle: false }))
         .pipe(terser({
@@ -28,11 +28,28 @@ gulp.task('js', function () {
         .pipe(gulp.dest(JS_DEST));
 });
 
-gulp.task('images', function () {
+gulp.task('buildimages', function () {
     return gulp.src(IMG)
         .pipe(imagemin())
         .pipe(gulp.dest(IMG_DEST));
 });
+
+gulp.task('cleansass', function () {
+    return del([CSS_DEST]);
+});
+
+gulp.task('cleanjs', function () {
+    return del([JS_DEST]);
+});
+
+gulp.task('cleanimages', function () {
+    return del([IMG_DEST]);
+});
+
+gulp.task('clean', gulp.parallel(['cleansass', 'cleanjs', 'cleanimages']));
+gulp.task('sass', gulp.series(['cleansass', 'buildsass']));
+gulp.task('js', gulp.series(['cleanjs', 'buildjs']));
+gulp.task('images', gulp.series(['cleanimages', 'buildimages']));
 
 gulp.task('watch', function () {
     gulp.watch(SCSS, gulp.series('sass'));
@@ -40,4 +57,4 @@ gulp.task('watch', function () {
     gulp.watch(IMG, gulp.series('images'));
 });
 
-gulp.task('default', gulp.parallel(['watch', 'sass', 'js', 'images']));
+gulp.task('default', gulp.parallel(['sass', 'js', 'images']));
