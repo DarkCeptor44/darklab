@@ -2,7 +2,7 @@
 // @name         Whatsapp Web Dark Theme
 // @icon         https://web.whatsapp.com/img/favicon/1x/favicon.png
 // @namespace    http://tampermonkey.net/
-// @version      1.1
+// @version      1.2
 // @description  Changes WhatsApp Web to Dark Theme
 // @author       DarkCeptor44
 // @downloadURL  https://darkceptor44.github.io/darklab/assets/userscripts/dark-theme-whatsapp-web.user.js
@@ -12,6 +12,7 @@
 // @require      https://darkceptor44.github.io/darklab/assets/js/userscripts-utils.js
 // @run-at       document-idle
 // @history      1.1 Fixed theme
+// @history      1.2 Major changes
 // ==/UserScript==
 
 console.log(('undefined' === typeof jQuery) ? 'jQuery not present' : 'jQuery present');
@@ -28,27 +29,35 @@ $().ready(() => {
 
     var style = `@keyframes rainbow{0%{background-position:0% 50%}50%{background-position:100% 25%}100%{background-position:0% 50%}}@-webkit-keyframes rainbow{0%{background-position:0% 50%}50%{background-position:100% 25%}100%{background-position:0% 50%}}@-moz-keyframes rainbow{0%{background-position:0% 50%}50%{background-position:100% 25%}100%{background-position:0% 50%}}@-o-keyframes rainbow{0%{background-position:0% 50%}50%{background-position:100% 25%}100%{background-position:0% 50%}}@-ms-keyframes rainbow{0%{background-position:0% 50%}50%{background-position:100% 25%}100%{background-position:0% 50%}}@-moz-keyframes spin{100%{-moz-transform:rotate(360deg)}}@-webkit-keyframes spin{100%{-webkit-transform:rotate(360deg)}}@keyframes spin{100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes regress{0%{width:1%}50%{width:100%}100%{width:1%}}@-webkit-keyframes regress{0%{width:1%}50%{width:100%}100%{width:1%}}@-moz-keyframes regress{0%{width:1%}50%{width:100%}100%{width:1%}}
 
-        html[dir] ._1GX8_,html[dir] ._2EXPL,html[dir] ._2MSJr,#startup, #initial_startup,html[dir] ._1Plpp{background-color:var(--dark-bg) !important;}
-        html[dir] ._2zynu,html[dir] .B5rWa,html[dir] .message-in ._1iJeo{background-color:var(--dark-bg2) !important;}
-        html[dir] .gQzdc,progress[value]::-webkit-progress-bar,html[dir] ._3fs0K,html[dir] ._2y17h,html[dir] ._3auIg,html[dir] ._2EXPL.CxUIE,html[dir] .message-in .MVjBr,html[dir] ._3pkkz{background-color:var(--dark-bg3) !important;}
-        html[dir] ._2EXPL:hover,html[dir] ._1RQfk{background-color:var(--dark-bg4) !important;}
-        progress[value]::-webkit-progress-value,html[dir] .message-out .MVjBr,html[dir] .OUeyt,html[dir] ._36Zz0._1exov,html[dir=ltr] .bg-color-1{background-color:var(--dark-orange) !important;}
-        html[dir] .Zq3Mc{background-color:#33b1ff !important;}
+        html[dir] ._1GX8_,html[dir] ._2EXPL,html[dir] ._2MSJr,#startup, #initial_startup,html[dir] ._1Plpp,html[dir=ltr] ._3Mxes,.NuJ4j,html[dir] ._3vXNW{background-color:var(--dark-bg) !important;}
+        html[dir] ._2zynu,html[dir] .B5rWa,html[dir] .message-in ._1iJeo,html[dir] ._3nuGo{background-color:var(--dark-bg2) !important;}
+        html[dir] .gQzdc,progress[value]::-webkit-progress-bar,html[dir] ._3fs0K,html[dir] ._2y17h,html[dir] ._3auIg,html[dir] ._2EXPL.CxUIE,html[dir] .message-in .MVjBr,html[dir] ._3pkkz,html[dir] ._2EXPL._1FGIr.ts7je,html[dir] ._3pRd1,html[dir] .C73Q6{background-color:var(--dark-bg3) !important;}
+        html[dir] ._2EXPL:hover,html[dir] ._1RQfk,html[dir] ._1ypOz:hover{background-color:var(--dark-bg4) !important;}
+        progress[value]::-webkit-progress-value,html[dir] .message-out .MVjBr,html[dir] .OUeyt,html[dir] ._36Zz0._1exov,html[dir=ltr] .bg-color-1,html[dir] .wDFKR,html[dir] ._3hV1n,html[dir] .KNt1E{background-color:var(--dark-orange) !important;}
+        html[dir] .Zq3Mc,html[dir] ._298R6{background-color:var(--dark-blue) !important;}
         html[dir] ._1WliW{background-color:transparent !important;}
+        html[dir] .gDOmN{background-color:#000 !important;}
 
-        ._2g-bt,._2EXPL.CxUIE ._1AwDx,._1AwDx,._3Bxar,.Y9G3K{color:#ccc !important;}
-        ._3_7SH,._3XrHh,.P8cO8,._25Ooe,.rAUz7:hover,._34D8D,.CxUIE ._3Bxar,._3F6QL ._2S1VP,._1DZAH,._3kN0h,._1upWv,._1fkCN,._1_09x{color:#eee !important;}
+        html[dir] ._1ypOz{background-color:var(--dark-bg3);}
+
+        ._2g-bt,._2EXPL.CxUIE ._1AwDx,._1AwDx,._3Bxar,.Y9G3K,._7HWvs{color:#ccc !important;}
+        ._3_7SH,._3XrHh,.P8cO8,._25Ooe,.rAUz7:hover,._34D8D,.CxUIE ._3Bxar,._3F6QL ._2S1VP,._1DZAH,._3kN0h,._1upWv,._1fkCN,._1_09x,a,._3gkvk,html[dir] ._1ypOz:hover,._2n7FA,._2HiNF,._2pyvj{color:#eee !important;}
         .dPZky{color:#aaa !important;}
-        ._2zynu a,._15G96 [data-icon=muted],._3FwEk,.vdXUe,html[dir=ltr] .color-1{color:var(--dark-orange) !important;}
+        ._2zynu a,._15G96 [data-icon=muted],._3FwEk,.vdXUe,html[dir=ltr] .color-1,.Gd51Q._3sgkv{color:var(--dark-orange) !important;}
 
-        ._209Po._1xtH9{color:#eee;}
+        ._209Po._1xtH9,html[dir] .rAUz7,._2SbJ1{color:#eee;}
         ._209Po,._1VfKB{color:var(--dark-bg);}
         ._1VfKB.a5DO0{color:var(--dark-orange);}
-        ._1VfKB{color:#aaa;}
+        ._1VfKB,html[dir] ._1ypOz{color:#aaa;}
 
-        html[dir] ._2EXPL{transition:var(--dark-transition2) !important;}
+        html[dir] ._2EXPL,._2SbJ1,a,html[dir] ._1ypOz,html[dir] .rAUz7{transition:var(--dark-transition2) !important;}
+        html[dir] ._3hV1n{transition:var(--dark-transition2) !important;opacity:0.8;}
+
+        html[dir] ._3hV1n:hover{opacity:1 !important;}
+        html[dir] .rAUz7:hover,._2SbJ1:hover{color:var(--dark-orange) !important;}
 
         ._1_09x{font-weight:600 !important;}
+        a{font-weight:bold !important;}
 
         html[dir=ltr] ._1i1U7.jZ4tp{background:linear-gradient(to right, rgba(var(--dark-bg5), 0) 0%, rgba(var(--dark-bg5), 1) 50%);}
         html[dir=ltr] ._1i1U7._2DNgV{background:linear-gradient(to right, rgba(var(--dark-orange), 0) 0%, rgba(var(--dark-orange), 1) 50%);}
@@ -58,11 +67,23 @@ $().ready(() => {
         html[dir=ltr] .message-out .tail-container{background-image:var(--dark-out-tail-container-image) !important;}
 
         html[dir] ._3j7s9,html[dir] ._2EXPL:hover{border-color:var(--dark-bg5) !important;}
-        html[dir] ._2zynu:after{border-color:var(--dark-orange) !important;}
-        html[dir] ._1Plpp{border-color:transparent !important;}
+        html[dir] ._2zynu:after,html[dir] ._2Mg6D .CzI8E{border-color:var(--dark-orange) !important;}
+        html[dir] ._1Plpp,html[dir] .C73Q6{border-color:transparent !important;}
         html[dir=ltr] ._2y17h{border-right:none !important;border-color:#666 !important;}
+        html[dir] ._3DBC1{border-color:#ccc !important;}
+        html[dir] ._2y17h:after{border:none !important;background-color:transparent !important;}
 
-        [data-icon=status-v3-unread] svg path:nth-child(2){fill:var(--dark-orange) !important;}
+        [data-icon=status-v3-unread] svg path:nth-child(2),[data-icon=back-blue] svg path{fill:var(--dark-orange) !important;}
+        [data-icon=search] svg path{fill:#eee !important;}
+        html[dir=ltr] svg._1UDDE .Qf313{stroke:var(--dark-orange) !important;}
+
+        html[dir] ._1_09x{padding:10px 4px !important;transition:var(--dark-transition2) !important;width:100% !important;margin:8px 0 0 0 !important;background-color:transparent;border-radius:3px;}
+        html[dir] ._1_09x:hover{background-color:rgba(0,0,0,.2) !important;}
+
+        ._1YbLB{transition:var(--dark-transition2) !important;opacity:0.3;filter:blur(10px);transform:scale(1.1);}
+        ._1YbLB:hover{opacity:1 !important;filter:blur(0) !important;transform:scale(1) !important;}
+
+        html[dir] ._1ypOz{border-radius:10px !important;}
 
         ._1upWv{font-weight:600 !important;}
 
