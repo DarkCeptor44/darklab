@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Whatsapp Web Dark Theme
 // @icon         https://web.whatsapp.com/img/favicon/1x/favicon.png
-// @namespace    http://tampermonkey.net/
-// @version      1.2
+// @namespace    https://darkceptor44.github.io/darklab
+// @version      1.2.1
 // @description  Changes WhatsApp Web to Dark Theme
 // @author       DarkCeptor44
 // @downloadURL  https://darkceptor44.github.io/darklab/assets/userscripts/dark-theme-whatsapp-web.user.js
@@ -13,6 +13,7 @@
 // @run-at       document-idle
 // @history      1.1 Fixed theme
 // @history      1.2 Major changes
+// @history      1.2.1 Changed some stuff
 // ==/UserScript==
 
 console.log(('undefined' === typeof jQuery) ? 'jQuery not present' : 'jQuery present');
